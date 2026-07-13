@@ -1,0 +1,145 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+}
+
+version = '1.0.0'
+group = 'com.battlelinesystem'
+archivesBaseName = 'battlelinesystem'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'parchment', version: '2023.09.03-1.20.1'
+
+    runs {
+        configureEach {
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods {
+                battlelinesystem {
+                    source sourceSets.main
+                }
+            }
+        }
+        client {
+            workingDirectory project.file('run')
+            property 'forge.enabledGameTestNamespaces', 'battlelinesystem'
+        }
+        client2 {
+            parent runs.client
+            workingDirectory project.file('run2')
+            args '--username', 'Player2'
+        }
+        server {
+            workingDirectory project.file('run')
+            property 'forge.enabledGameTestNamespaces', 'battlelinesystem'
+        }
+        gameTestServer {
+            workingDirectory project.file('run')
+            property 'forge.enabledGameTestNamespaces', 'battlelinesystem'
+        }
+        data {
+            workingDirectory project.file('run')
+            args '--mod', 'battlelinesystem', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri('https://cursemaven.com')
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
+    maven {
+        url = uri('https://maven.theillusivec4.top/')
+        content {
+            includeGroup 'top.theillusivec4.curios'
+        }
+    }
+    maven {
+        name = 'GeckoLib'
+        url = uri('https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/')
+        content {
+            includeGroupByRegex 'software\\.bernie.*'
+            includeGroup 'com.eliotlash.mclib'
+        }
+    }
+    maven {
+        name = 'Kotlin for Forge'
+        url = uri('https://thedarkcolour.github.io/KotlinForForge/')
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.4.0'
+
+    // SuperbWarfare 及其必须依赖
+    implementation 'thedarkcolour:kotlinforforge:4.11.0'
+    implementation fg.deobf("curse.maven:superb-warfare-1218165:8104849")
+    implementation fg.deobf("curse.maven:sbw-drr-1346094:8131704")
+    implementation fg.deobf("top.theillusivec4.curios:curios-forge:5.14.1+1.20.1")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.4.6")
+
+    runtimeOnly fg.deobf("curse.maven:xaeros-minimap-263420:7583601")
+    runtimeOnly fg.deobf("curse.maven:timeless-and-classics-zero-1028108:8055552")
+}
+
+jar {
+    manifest {
+        attributes([
+            "Specification-Title": "battlelinesystem",
+            "Specification-Vendor": "battlelinesystem",
+            "Specification-Version": "1",
+            "Implementation-Title": project.name,
+            "Implementation-Version": project.jar.archiveVersion,
+            "Implementation-Vendor": "battlelinesystem",
+            "MixinConfigs": "battlelinesystem.mixins.json"
+        ])
+    }
+}
+
+// ===== 服务端 JAR（从已 reobf 的客户端 JAR 中剔除 ServerGuard 陷阱类） =====
+tasks.register('serverJar', Jar) {
+    archiveClassifier = 'server'
+    dependsOn 'reobfJar'
+
+    // 从已 reobfuscated 的 jar 中提取 class，排除 guard 包
+    from(zipTree(tasks.named('jar').flatMap { it.archiveFile })) {
+        exclude 'com/battlelinesystem/guard/**'
+    }
+
+    // 修改了 jar 内容，需要清除签名
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+
+    manifest {
+        attributes([
+            "Specification-Title": "battlelinesystem",
+            "Specification-Vendor": "battlelinesystem",
+            "Specification-Version": "1",
+            "Implementation-Title": project.name,
+            "Implementation-Version": project.jar.archiveVersion,
+            "Implementation-Vendor": "battlelinesystem",
+            "MixinConfigs": "battlelinesystem.mixins.json"
+        ])
+    }
+}
+
+// 让 build 同时产出两个 JAR
+tasks.named('build') {
+    dependsOn 'serverJar'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

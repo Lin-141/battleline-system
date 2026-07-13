@@ -1,0 +1,26 @@
+# === Build outputs ===
+build/
+out/
+.classpath
+.project
+.settings/
+
+# === IDE ===
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# === Gradle ===
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# === Game run data ===
+run/
+
+# === Assets & reference mods ===
+美术资产/
+训练模型/
+
+# === Compilation log junk (root level only) ===
+/*.txt

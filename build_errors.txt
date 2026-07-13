@@ -1,0 +1,135 @@
+﻿To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Task :compileJava
+.\gradlew : E:\battlelinesystem\src\main\java\com\battlelinesystem\command\Capt
+urePointCommand.java:8: 错误: 找不到符号
+所在位置 行:1 字符: 25
++ cd e:\battlelinesystem; .\gradlew compileJava *>&1 | Out-File -FilePa ...
++                         ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (E:\battlelinesy...va:8: 错误: 找不到符号 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+import com.mojang.brigadier.CommandSyntaxException;
+                           ^
+  符号:   类 CommandSyntaxException
+  位置: 程序包 com.mojang.brigadier
+E:\battlelinesystem\src\main\java\com\battlelinesystem\command\CapturePointComm
+and.java:289: 错误: 找不到符号
+                                   boolean fixed, boolean unused) throws Comman
+dSyntaxException {
+                                                                         ^
+  符号:   类 CommandSyntaxException
+  位置: 类 CapturePointCommand
+E:\battlelinesystem\src\main\java\com\battlelinesystem\BattleLineSystem.java:75
+: 警告: [removal] FMLJavaModLoadingContext 中的 get() 已过时, 且标记为待删除
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus()
+;
+                                                        ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\world\GameWorldManager.j
+ava:393: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String) 已过时,
+ 且标记为待删除
+                new ResourceLocation(BattleLineSystem.MOD_ID, "edit_" + templat
+eId));
+                ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\world\GameWorldManager.j
+ava:453: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String) 已过时,
+ 且标记为待删除
+                new ResourceLocation(BattleLineSystem.MOD_ID, GAME_WORLD_PREFIX
+ + uuid));
+                ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\client\gui\MapSettingsSc
+reen.java:105: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String
+) 已过时, 且标记为待删除
+                    ResourceLocation loc = new ResourceLocation(
+                                           ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\client\gui\MapVoteScreen
+.java:60: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String) 已过时
+, 且标记为待删除
+                    ResourceLocation loc = new ResourceLocation(
+                                           ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\client\gui\WaitHudOverla
+y.java:40: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String) 已过
+时, 且标记为待删除
+            new ResourceLocation("battlelinesystem", "waitmap");
+            ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\client\gui\WaitHudOverla
+y.java:1071: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String) 
+已过时, 且标记为待删除
+            if (colon >= 0) rl = new ResourceLocation(s.substring(0, colon), s.
+substring(colon + 1));
+                                 ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\client\gui\WaitHudOverla
+y.java:1072: 警告: [removal] ResourceLocation 中的 ResourceLocation(String) 已过时, 且标
+记为待删除
+            else rl = new ResourceLocation(s);
+                      ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\command\OpenMapCommand.j
+ava:317: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String) 已过时,
+ 且标记为待删除
+                                                    new net.minecraft.resources
+.ResourceLocation(
+                                                    ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\game\CapturePointManager
+.java:300: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String) 已过
+时, 且标记为待删除
+            net.minecraft.resources.ResourceLocation rl = new net.minecraft.res
+ources.ResourceLocation(ns, path);
+                                                          ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\game\CapturePointManager
+.java:333: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String) 已过
+时, 且标记为待删除
+            net.minecraft.resources.ResourceLocation rl = new net.minecraft.res
+ources.ResourceLocation(ns, path);
+                                                          ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\network\AllPackets.java:
+59: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,String) 已过时, 且标记为
+待删除
+                new ResourceLocation(BattleLineSystem.MOD_ID, "main"),
+                ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\network\NetworkManager.j
+ava:46: 警告: [dep-ann] 未使用 @Deprecated 对已过时的项目进行注释
+    public static void removeVehicleByEntity(UUID entityUuid) {
+                       ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\network\packet\PacketCla
+ssSelect.java:239: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,St
+ring) 已过时, 且标记为待删除
+                                    new net.minecraft.resources.ResourceLocatio
+n(BattleLineSystem.MOD_ID, "waiting_01"),
+                                    ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\network\packet\PacketCla
+ssSelect.java:556: 警告: [removal] ResourceLocation 中的 ResourceLocation(String,St
+ring) 已过时, 且标记为待删除
+                rl = new net.minecraft.resources.ResourceLocation(
+                     ^
+E:\battlelinesystem\src\main\java\com\battlelinesystem\network\packet\PacketCla
+ssSelect.java:559: 警告: [removal] ResourceLocation 中的 ResourceLocation(String) 已
+过时, 且标记为待删除
+                rl = new net.minecraft.resources.ResourceLocation(stored);
+                     ^
+注: 某些输入文件使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+2 个错误
+16 个警告
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.8/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 13s
+1 actionable task: 1 executed
