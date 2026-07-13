@@ -1,0 +1,112 @@
+{
+  "start_01": {
+    "sounds": [
+      {
+        "name": "battlelinesystem:start_01",
+        "stream": true
+      }
+    ]
+  },
+  "waiting_01": {
+    "sounds": [
+      {
+        "name": "battlelinesystem:waiting_01",
+        "stream": true
+      }
+    ]
+  },
+  "ending_01": {
+    "sounds": [
+      {
+        "name": "battlelinesystem:ending_01",
+        "stream": true
+      }
+    ]
+  },
+  "pointwaiting": {
+    "sounds": [
+      {
+        "name": "battlelinesystem:pointwaiting",
+        "stream": true
+      }
+    ]
+  },
+  "usair": {
+    "sounds": [
+      { "name": "battlelinesystem:usair1", "stream": true },
+      { "name": "battlelinesystem:usair2", "stream": true }
+    ]
+  },
+  "usland": {
+    "sounds": [
+      { "name": "battlelinesystem:usland1", "stream": true },
+      { "name": "battlelinesystem:usland2", "stream": true }
+    ]
+  },
+  "ruland": {
+    "sounds": [
+      { "name": "battlelinesystem:ruland1", "stream": true },
+      { "name": "battlelinesystem:ruland2", "stream": true }
+    ]
+  },
+  "ruair": {
+    "sounds": [
+      { "name": "battlelinesystem:ruair1", "stream": true },
+      { "name": "battlelinesystem:ruair2", "stream": true }
+    ]
+  },
+  "cnair": {
+    "sounds": [
+      { "name": "battlelinesystem:cnair1", "stream": true },
+      { "name": "battlelinesystem:cnair2", "stream": true }
+    ]
+  },
+  "cnland": {
+    "sounds": [
+      { "name": "battlelinesystem:cnland1", "stream": true },
+      { "name": "battlelinesystem:cnland2", "stream": true }
+    ]
+  },
+  "cnlose": {
+    "sounds": [
+      { "name": "battlelinesystem:cnlose1" },
+      { "name": "battlelinesystem:cnlose2" },
+      { "name": "battlelinesystem:cnlose3" }
+    ]
+  },
+  "cntake": {
+    "sounds": [
+      { "name": "battlelinesystem:cntake1" },
+      { "name": "battlelinesystem:cntake2" },
+      { "name": "battlelinesystem:cntake3" }
+    ]
+  },
+  "rulose": {
+    "sounds": [
+      { "name": "battlelinesystem:rulose1" },
+      { "name": "battlelinesystem:rulose2" },
+      { "name": "battlelinesystem:rulose3" }
+    ]
+  },
+  "rutake": {
+    "sounds": [
+      { "name": "battlelinesystem:rutake1" },
+      { "name": "battlelinesystem:rutake2" },
+      { "name": "battlelinesystem:rutake3" }
+    ]
+  },
+  "uslose": {
+    "sounds": [
+      { "name": "battlelinesystem:uslose1" },
+      { "name": "battlelinesystem:uslose2" },
+      { "name": "battlelinesystem:uslose3" }
+    ]
+  },
+  "ustake": {
+    "sounds": [
+      { "name": "battlelinesystem:ustake1" },
+      { "name": "battlelinesystem:ustake2" },
+      { "name": "battlelinesystem:ustake3" }
+    ]
+  }
+}

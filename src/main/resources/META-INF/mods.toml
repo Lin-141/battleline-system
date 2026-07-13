@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mixins]]
+config="battlelinesystem.mixins.json"
+
+[[mods]]
+modId="battlelinesystem"
+version="1.0.0"
+displayName="BattleLine System"
+description="A Battlefield-like game system for Minecraft. Create teams, capture points, and fight for control of the map!"
+authors=["Developer"]
+
+[[dependencies.battlelinesystem]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.battlelinesystem]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"

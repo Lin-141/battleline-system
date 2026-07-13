@@ -1,0 +1,7 @@
+{
+  "mappings": {
+    "com/battlelinesystem/mixin/MinecraftServerMixin": {
+      "stopServer": "Lnet/minecraft/server/MinecraftServer;m_7041_()V"
+    }
+  }
+}

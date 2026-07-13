@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: battlelinesystem
+Specification-Vendor: battlelinesystem
+Specification-Version: 1
+Implementation-Title: battlelinesystem
+Implementation-Version: 1.0.0
+Implementation-Vendor: battlelinesystem
+MixinConfigs: fantasy.mixins.json
+
